@@ -1,13 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
-import Categories from './components/categories/categories.components';
+import { Route, Routes } from 'react-router-dom';
+import NavigationPage from './routes/navigation/navigation.page';
+import HomePage from './routes/home/home.page';
+import SignInPage from './routes/sign-in/sign-in.page';
 
 
-function App() {
+const Shop = () => {
+  return "This is our shop"
+}
+
+const App = () => {
   return (
-    <div className="App">
-      <Categories/>
-    </div>
+    <Routes>
+      <Route path='' element={<NavigationPage />}>
+        <Route path='/' element={<HomePage />}/>
+        <Route path='/shop' element={<Shop />}/>
+        <Route path='/sign-in' element={<SignInPage />}/>
+      </Route>
+    </Routes>
   );
 }
 
